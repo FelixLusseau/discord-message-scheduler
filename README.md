@@ -2,7 +2,7 @@
 <br />
 <div align="center">
 
-  <a href="https://github.com/Taaku18/discord-message-scheduler">
+  <a href="https://github.com/FelixLusseau/discord-message-scheduler">
     <img src="docs/logo-black.svg" alt="Logo" width="180" height="180">
   </a>
 
@@ -81,9 +81,9 @@ You will also need a Discord bot.
 
 ### Installation
 
-1. Clone or [download](https://github.com/Taaku18/discord-message-scheduler/archive/refs/heads/main.zip) the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/Taaku18/discord-message-scheduler.git
+   git clone https://github.com/FelixLusseau/discord-message-scheduler
    ```
 2. Install Python dependencies, choose a method from below:
    1. Using pip
@@ -109,10 +109,8 @@ You will also need a Discord bot.
 
 To start the bot, simply run:
 ```sh
-python3.10 start.py
+python3 start.py
 ```
-
-<!--_For more examples, please refer to the [Documentation](https://example.com)_-->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
