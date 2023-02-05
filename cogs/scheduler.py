@@ -375,7 +375,7 @@ def get_schedule_modal(defaults: RawScheduleModalValues | None = None) -> Type[S
             default=message_default,
         )
         time: discord.ui.TextInput[ScheduleModal] = discord.ui.TextInput(
-            label="Scheduled Time (DD/MM/YY HH:MM:SS)", required=True, max_length=100, default=time_default
+            label="Scheduled Time ([DD/MM/YY] HH:MM:SS)", required=True, max_length=100, default=time_default
         )
         timezone: discord.ui.TextInput[ScheduleModal] = discord.ui.TextInput(
             label="Timezone (UTC offset +/-HH:MM)", required=False, max_length=100, default=timezone_default
@@ -1885,8 +1885,15 @@ class Scheduler(Cog):
                 )
             allowed_mentions = discord.AllowedMentions.none()
         # channel has .send since invalid channel typed are filtered above with hasattr(channel, 'send')
+        embed = discord.Embed(title="Scheduled message",
+                              description=event.message, color=0xFF5733)
+        # embed.set_author(name=author.display_name, icon_url=author.avatar)
+        embed.set_footer(
+            text=f"Sent by {author.display_name}")
+        # embed.set_thumbnail(
+        #    url="https://raw.githubusercontent.com/FelixLusseau/discord-message-scheduler/master/docs/clock.png")
         await channel.send(  # type: ignore[reportGeneralTypeIssues]
-            event.message, allowed_mentions=allowed_mentions
+            embed=embed, allowed_mentions=allowed_mentions
         )
         # TODO: add a "report abuse" feature/command, save all sent msg in a db table with the id
         return True
